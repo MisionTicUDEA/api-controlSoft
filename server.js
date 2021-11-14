@@ -9,7 +9,7 @@ import { conectarBD } from './db/db.js';
 import jwt from 'express-jwt';
 import jwks from 'jwks-rsa';
 
-import rutasVehiculo from './views/productos/rutas.js';
+import rutasProducto from './views/productos/rutas.js';
 import rutasUsuario from './views/usuarios/rutas.js';
 import rutasVenta from './views/ventas/rutas.js';
 import autorizacionEstadoUsuario from './middleware/autorizacionEstadoUsuario.js';
@@ -33,14 +33,14 @@ var jwtCheck = jwt({
 audience: 'api-autenticacion-ventas-mintic',
 issuer: 'https://misiontic-ventas-ciclo-tres.us.auth0.com/',
 algorithms: ['RS256']
-});
+})
 
 // 4 y 5: enviarle el token a auth0 para que devuelva si es valido o no
 app.use(jwtCheck);
 
 app.use(autorizacionEstadoUsuario);
 
-app.use(rutasVehiculo);
+app.use(rutasProducto);
 app.use(rutasUsuario);
 app.use(rutasVenta);
 

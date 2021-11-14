@@ -1,7 +1,7 @@
 import { ObjectId } from 'mongodb';
 import { getDB } from '../../db/db.js';
 
-const queryAllProducts = async (callback) => {
+const queryAllProductos = async (callback) => {
   const baseDeDatos = getDB();
   await baseDeDatos.collection('producto').find({}).limit(50).toArray(callback);
 };
@@ -9,8 +9,8 @@ const queryAllProducts = async (callback) => {
 const crearProducto = async (datosProducto, callback) => {
   if (
     Object.keys(datosProducto).includes('name') &&
-    Object.keys(datosProducto).includes('kind') &&
-    Object.keys(datosProducto).includes('size')
+    Object.keys(datosProducto).includes('brand') &&
+    Object.keys(datosProducto).includes('model')
   ) {
     const baseDeDatos = getDB();
     // implementar código para crear vehículo en la BD
@@ -43,4 +43,4 @@ const eliminarProducto = async (id, callback) => {
   await baseDeDatos.collection('producto').deleteOne(filtroProducto, callback);
 };
 
-export { queryAllProducts, crearProducto, consultarProducto, editarProducto, eliminarProducto };
+export { queryAllProductos, crearProducto, consultarProducto, editarProducto, eliminarProducto };

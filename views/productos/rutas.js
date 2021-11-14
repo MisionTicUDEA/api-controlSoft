@@ -1,6 +1,6 @@
 import Express from 'express';
 import {
-  queryAllProducts,
+  queryAllProductos,
   crearProducto,
   editarProducto,
   eliminarProducto,
@@ -20,7 +20,7 @@ const genercCallback = (res) => (err, result) => {
 
 rutasProducto.route('/productos').get((req, res) => {
   console.log('alguien hizo get en la ruta /productos');
-  queryAllProducts(genercCallback(res));
+  queryAllProductos(genercCallback(res));
 });
 
 rutasProducto.route('/productos').post((req, res) => {
