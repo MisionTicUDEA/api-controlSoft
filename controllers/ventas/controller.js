@@ -7,10 +7,23 @@ const queryAllSales = async (callback) => {
   await baseDeDatos.collection('venta').find({}).limit(50).toArray(callback);
 };
 
+
+
+
+
 const crearVenta = async (datosVenta, callback) => {
+
+
+
   const baseDeDatos = getDB();
+
+  
   await baseDeDatos.collection('venta').insertOne(datosVenta, callback);
 };
+
+
+
+
 
 const consultarVenta = async (id, callback) => {
   const baseDeDatos = getDB();

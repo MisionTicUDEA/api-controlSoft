@@ -6,6 +6,10 @@ const queryAllProductos = async (callback) => {
   await baseDeDatos.collection('producto').find({}).limit(50).toArray(callback);
 };
 
+
+
+
+
 const crearProducto = async (datosProducto, callback) => {
   if (
     Object.keys(datosProducto).includes('name') &&
@@ -20,6 +24,9 @@ const crearProducto = async (datosProducto, callback) => {
     return 'error';
   }
 };
+
+
+
 
 const consultarProducto = async (id, callback) => {
   const baseDeDatos = getDB();
