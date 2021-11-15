@@ -14,7 +14,8 @@ const crearProducto = async (datosProducto, callback) => {
   if (
     Object.keys(datosProducto).includes('name') &&
     Object.keys(datosProducto).includes('brand') &&
-    Object.keys(datosProducto).includes('model')
+    Object.keys(datosProducto).includes('model') &&
+    Object.keys(datosProducto).includes('valor')
   ) {
     const baseDeDatos = getDB();
     // implementar código para crear vehículo en la BD
